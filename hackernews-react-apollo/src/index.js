@@ -4,6 +4,8 @@ import './styles/index.css'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 
+import { AUTH_TOKEN } from './constants'
+
 // 1
 import { ApolloProvider } from 'react-apollo'
 /* import { ApolloClient } from 'apollo-client'
@@ -21,7 +23,7 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem(AUTH_TOKEN)
   // return the headers to the context so httpLink can read them
   return {
     headers: {
